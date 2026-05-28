@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "https://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/PracticeProjectWithJDBC
+        </property>
+
+        <property name="hibernate.connection.username">
+            Krishu
+        </property>
+
+        <property name="hibernate.connection.password">
+            K&amp;vR39gLow
+        </property>
+
+        <property name="hibernate.hbm2ddl.auto">
+            update
+        </property>
+
+        <property name="hibernate.show_sql">
+            true
+        </property>
+
+        <mapping class="com.Krishu.Entity.Question"/>
+        <mapping class="com.Krishu.Entity.Quiz"/>
+        <mapping class="com.Krishu.Entity.User"/>
+        <mapping class="com.Krishu.Entity.Result"/>
+    </session-factory>
+</hibernate-configuration>
