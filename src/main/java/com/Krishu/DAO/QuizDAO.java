@@ -7,7 +7,7 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class DAO_Quiz {
+public class QuizDAO {
     public void saveQuiz(Quiz quiz) {
         Session s=HibernateUtil.getSession();
         Transaction transaction=s.beginTransaction();
