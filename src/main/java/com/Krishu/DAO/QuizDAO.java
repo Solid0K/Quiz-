@@ -5,6 +5,10 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class QuizDAO {
@@ -42,5 +46,17 @@ public class QuizDAO {
         }
         transaction.commit();
        s.close();
+    }
+
+    public int getIdByTitle(String Title) throws SQLException {
+        String sql="select * from Quiz where title=?";
+        Connection connection=DBConnection.getConnection();
+        PreparedStatement ps=connection.prepareStatement(sql);
+        ps.setString(1,Title);
+        ResultSet set=ps.executeQuery();
+        if(set.next()){
+            return set.getInt("id");
+        }
+        return -1;
     }
 }

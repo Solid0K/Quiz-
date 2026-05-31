@@ -4,6 +4,11 @@ import com.Krishu.Entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class UserDAO {
     public void saveUser(User user){
         Session s=HibernateUtil.getSession();
@@ -20,5 +25,18 @@ public class UserDAO {
         transaction.commit();
         s.close();
         return user;
+    }
+
+    public int getIdByEmailAndPassword(String email, String Password) throws SQLException {
+        String sql="select * from User where email=? and password=?";
+        Connection connection=DBConnection.getConnection();
+        PreparedStatement ps=connection.prepareStatement(sql);
+        ps.setString(1,email);
+        ps.setString(2,Password);
+        ResultSet set=ps.executeQuery();
+        if(set.next()){
+            return set.getInt("id");
+        }
+        return -1;
     }
 }
