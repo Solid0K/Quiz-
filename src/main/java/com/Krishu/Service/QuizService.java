@@ -39,7 +39,7 @@ public class QuizService {
         System.out.println("Question has been added to quiz");
     }
 
-    public void ShowQuiz(int id){
+    public static void ShowQuiz(int id){
         Quiz quiz=quiz_dao.getQuizById(id);
         List<Question> listOfQuestions=question_dao.getQuestionsByQuiz(id);
         System.out.println("Quiz: "+quiz.getTitle());

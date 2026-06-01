@@ -13,7 +13,6 @@ public class QuestionDAO {
         Transaction transaction=s.beginTransaction();
         s.persist(question);
         transaction.commit();
-        s.close();
     }
 
     public Question getQuestionById(int id){
@@ -21,7 +20,6 @@ public class QuestionDAO {
         Transaction transaction=s.beginTransaction();
         Question getted_question=s.find(Question.class,id);
         transaction.commit();
-        s.close();
         return getted_question;
     }
 
@@ -30,7 +28,6 @@ public class QuestionDAO {
         Query<Question> query=s.createQuery("FROM Question where quiz.id= :id",Question.class);
         query.setParameter("id",Quiz_id);
         List<Question> questions=query.list();
-        s.close();
         return questions;
     }
 }

@@ -37,7 +37,7 @@ public class UserService {
         System.out.println("User Password: "+user.getPassword());
     }
 
-    public void getAttemptsHistory(int user_id){
+    public static void getAttemptsHistory(int user_id){
         List<Result> results=result_dao.getResultByUser(user_id);
         for(Result result:results){
             System.out.println("************************************************");

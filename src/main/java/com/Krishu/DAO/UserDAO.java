@@ -15,7 +15,6 @@ public class UserDAO {
         Transaction transaction=s.beginTransaction();
         s.persist(user);
         transaction.commit();
-        s.close();
     }
 
     public User getUserById(int id){
@@ -23,7 +22,6 @@ public class UserDAO {
         Transaction transaction=s.beginTransaction();
         User user=s.find(User.class,id);
         transaction.commit();
-        s.close();
         return user;
     }
 

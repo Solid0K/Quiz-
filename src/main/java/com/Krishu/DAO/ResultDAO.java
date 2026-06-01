@@ -13,7 +13,6 @@ public class ResultDAO {
         Transaction transaction=s.beginTransaction();
         s.persist(result);
         transaction.commit();
-        s.close();
     }
 
     public List<Result> getResultByUser(int user_id){

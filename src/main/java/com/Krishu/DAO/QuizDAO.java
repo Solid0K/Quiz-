@@ -17,7 +17,6 @@ public class QuizDAO {
         Transaction transaction=s.beginTransaction();
         s.persist(quiz);
         transaction.commit();
-        s.close();
     }
 
     public Quiz getQuizById(int id) {
@@ -25,7 +24,6 @@ public class QuizDAO {
         Transaction transaction=s.beginTransaction();
         Quiz quiz=s.find(Quiz.class,id);
         transaction.commit();
-        s.close();
         return quiz;
     }
 
@@ -33,7 +31,6 @@ public class QuizDAO {
         Session s=HibernateUtil.getSession();
         Query<Quiz> query=s.createQuery("FROM Quiz",Quiz.class);
         List<Quiz> ls=query.list();
-        s.close();
         return ls;
     }
 
@@ -45,7 +42,6 @@ public class QuizDAO {
             s.remove(quiz);
         }
         transaction.commit();
-       s.close();
     }
 
     public int getIdByTitle(String Title) throws SQLException {

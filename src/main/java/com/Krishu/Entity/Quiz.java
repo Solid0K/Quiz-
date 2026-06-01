@@ -34,4 +34,14 @@ public class Quiz {
     public String getTopic(){
         return this.topic;
     }
+
+    @Override
+    public String toString() {
+        return "Quiz{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", topic='" + topic + '\'' +
+                ", ques=" + ques +
+                '}';
+    }
 }

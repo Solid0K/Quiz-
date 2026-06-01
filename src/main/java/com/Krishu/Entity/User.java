@@ -54,4 +54,15 @@ public class User {
     public void setResults(List<Result> results) {
         this.results = results;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", results=" + results +
+                '}';
+    }
 }

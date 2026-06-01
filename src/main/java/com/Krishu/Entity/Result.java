@@ -57,4 +57,15 @@ public class Result {
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
     }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "id=" + id +
+                ", score=" + score +
+                ", TotalQuestions=" + TotalQuestions +
+                ", user=" + user +
+                ", quiz=" + quiz +
+                '}';
+    }
 }
